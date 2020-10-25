@@ -156,7 +156,7 @@ const App = () => {
 
     const [photos, addPhoto] = useState([]);
     const [cover, setCover] = useState("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80");
-    const [ profile, setProfile ] = useState("https://images.unsplash.com/photo-1561055657-b9e0bf0fa360?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80");
+    const [ profile, setProfile ] = useState("https://images.unsplash.com/photo-1547407139-3c921a66005c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80");
 
     useEffect(()=>{
         axios.get('http://192.168.29.173:3000/images').then(response => {
