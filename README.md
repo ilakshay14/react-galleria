@@ -1,7 +1,7 @@
 <h1>Galleria</h1>
 A React app where you can upload your shots for display.
 
-<a href="https://github.com/ilakshay14/react-galleria-backend">Bacnend Repo</a>
+<a href="https://github.com/ilakshay14/react-galleria-backend">Backend Repo</a>
 
 <h2>Features</h2>
 <ul>
