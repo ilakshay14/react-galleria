@@ -3,6 +3,7 @@ import styled from "styled-components";
 import axios from 'axios';
 import { FadeIn } from './theme/Animations';
 import { FlexColumn, FlexRow } from './theme/defaultStyles';
+import StyledModal from './components/Modal/Modal';
 
 const Wrapper = styled.div`
     width: 70%;
@@ -137,7 +138,7 @@ const Wrapper = styled.div`
         align-items: flex-start;
 
         img{
-            margin-top: 20px;
+            margin-top: 10px;
             flex: 0 0 47%;
             width: 47%;
             height: 250px;
@@ -148,6 +149,45 @@ const Wrapper = styled.div`
 
         }
     }
+
+    @media only screen and (max-width: 480px){
+        width: 95%;
+
+        .cover-photo{
+            height: 250px;
+
+            img{
+                border-radius: 10px;
+            }
+
+            .profile-photo{
+                width: 150px;
+                height: 150px;
+
+                left: 10px;
+
+                label{
+                    left: 10px;
+                    bottom: 0;
+                }
+            }
+        }
+
+        .file-input-wrapper{
+            .file-input{
+                width: 90%;
+            }
+        }
+
+        .gallery{
+            img{
+                height: 200px;  
+            }
+        }
+        
+
+        
+    }
     
 `;
 
@@ -157,6 +197,8 @@ const App = () => {
     const [photos, addPhoto] = useState([]);
     const [cover, setCover] = useState("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80");
     const [ profile, setProfile ] = useState("https://images.unsplash.com/photo-1547407139-3c921a66005c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80");
+    const [ showModal, setShowModal ] = useState(false);
+    const [ viewImage, setViewImage ] = useState("");
 
     useEffect(()=>{
         axios.get('http://192.168.29.173:3000/images').then(response => {
@@ -202,8 +244,19 @@ const App = () => {
             .catch(e => console.log(e));
     }
 
+    const showImage = (e) => {
+        console.log(e);
+        setViewImage(e.target.src);
+        setShowModal(true);
+    }
+
+    const hideModal = () => {
+        setShowModal(false);
+    }
+
     return (
         <Wrapper>
+            <StyledModal visible={showModal} url={viewImage} hide={hideModal}/>
             <div className="cover-photo">
                 <div className="upload-icon">
                 
@@ -232,7 +285,10 @@ const App = () => {
             {/* </form> */}
             <div className="gallery">
                 {
-                    photos.map(photo => <img key={photo} src={photo} />)
+                    photos.map(photo => <img 
+                        key={photo} 
+                        onClick={showImage} 
+                        src={photo} />)
                 }
 
             </div>
