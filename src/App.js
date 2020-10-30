@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from 'axios';
-import { FadeIn } from './theme/Animations';
-import { FlexColumn, FlexRow } from './theme/defaultStyles';
-import StyledModal from './components/Modal/Modal';
+
+
 import Header from "./components/Header/Header";
-import { HTTP_POST, HTTP_GET } from './utils/axios.config';
+
 import Galleria from "./components/Galleria/Galleria";
 
 const Wrapper = styled.div`
@@ -19,11 +18,7 @@ const Wrapper = styled.div`
     input[type="file"]{
         /* border: 1px solid black; */
             display: none;
-        }
-
-    
-
-    
+        }    
 
     @media only screen and (max-width: 480px){
         width: 95%;

@@ -5,8 +5,8 @@ const AXIOS_DEFAULT = Axios.create({
 });
 
 export const HTTP_POST = async(endpoint, data) => {
-    const response = AXIOS_DEFAULT.post(endpoint, data);
-    console.log(response);
+    const response = await AXIOS_DEFAULT.post(endpoint, data);
+    return response;
 }
 
 export const HTTP_GET = async(endpoint) => {

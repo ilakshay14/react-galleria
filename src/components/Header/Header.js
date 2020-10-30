@@ -35,7 +35,8 @@ const Header = () => {
             <div className="profile-photo">
                 <img src={profile} />
                 <label className="">
-                    <input type="file" name="profile" accept="image/*" capture onChange={uploadFile} />
+                    {/* <input type="file" name="profile" accept="image/*" capture onChange={uploadFile} /> */}
+                    <input type="file" name="profile" onChange={uploadFile} />
                     <ion-icon name="pencil"></ion-icon>
                 </label>
             </div>
