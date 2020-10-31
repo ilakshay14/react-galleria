@@ -1,14 +1,12 @@
-//import { useState } from 'react';
-
 const Photos = ({ photos, show }) => {
-    console.log(show);
+    //console.log(show);
     return (
         <div className="gallery">
             {
                 photos && photos.map(photo => <img
-                    key={photo}
+                    key={photo._id}
                     onClick={show}
-                    src={photo} />)
+                    src={photo.url} />)
             }
         </div>
     );

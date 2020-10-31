@@ -51,6 +51,29 @@ const StyledGalleria = styled.div`
 
         }
     }
+
+    @media only screen and (max-width: 480px){
+        .file-input-wrapper{
+            .file-input{
+                width: 90%;
+            }
+        }
+
+        .gallery{
+            img{
+                height: 200px;  
+            }
+        }
+    }
+
+    @media only screen and (min-width: 1200px){
+        .gallery{
+            img{
+                flex: 0 0 30%;
+                width: 32%;
+            }
+        }
+    }
 `;
 
 export default StyledGalleria;

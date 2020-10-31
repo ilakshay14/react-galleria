@@ -77,6 +77,26 @@ const StyledHeader = styled.div`
             }
 
         }
+
+    @media only screen and (max-width: 480px){
+        height: 250px;
+
+        img{
+            border-radius: 10px;
+        }
+
+        .profile-photo{
+            width: 150px;
+            height: 150px;
+
+            left: 10px;
+
+            label{
+                left: 10px;
+                bottom: 0;
+            }
+        }
+    }
 `;
 
 export default StyledHeader;

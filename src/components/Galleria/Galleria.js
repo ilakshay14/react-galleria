@@ -12,6 +12,7 @@ const Galleria = () => {
 
     useEffect(() => {
         HTTP_GET('images').then(response => {
+            console.log(response);
             addPhoto(response)
         })
     }, []);
@@ -28,15 +29,15 @@ const Galleria = () => {
         HTTP_POST('upload', data).then(response => {
             //console.log(response);
             if (response.status === 201) {
+                
                 let myPhotos = photos;
-                myPhotos.push(blobURL);
+                myPhotos.push(response.data);
                 addPhoto([...myPhotos]);
             }
         }).catch(e => console.log(e));
     }
 
     const showImage = (e) => {
-        console.log(e);
         setViewImage(e.target.src);
         setShowModal(true);
     }
